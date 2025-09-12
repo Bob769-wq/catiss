@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-crumb',
   imports: [],
   template: `
-    <div class="p-[.9375rem] mb-5">
+    <div class="p-[.9375rem] mb-5 mt-16 big:mt-48">
       <p><strong>反詐騙小叮嚀</strong></p>
       <p>
         提醒您，CATISS不會主動以電話聯絡索取個人的金融帳號、信用卡相關資料、或要求解除分期付款。如接到可疑來電，請勿輕信不明來電

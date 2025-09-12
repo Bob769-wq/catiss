@@ -24,10 +24,16 @@ import { RouterLink } from '@angular/router';
       <a class="cursor-pointer"><img src="/about-banner.webp" alt="about" /></a>
     </div>
     <div class="mb-5">
-      <div class="grid grid-cols-3">
-        <a routerLink="/about1"><img src="/about1.webp" alt="about1" /></a>
-        <a routerLink="/about2"><img src="/about2.webp" alt="about2" /></a>
-        <a routerLink="/about3"><img src="/about3.webp" alt="about3" /></a>
+      <div class=" grid justify-center  mid:grid-cols-3">
+        <a routerLink="/about1"
+          ><img src="/about1.webp" class="w-[720px] mid:w-auto" alt="about1"
+        /></a>
+        <a routerLink="/about2"
+          ><img src="/about2.webp" class="w-[720px] mid:w-auto" alt="about2"
+        /></a>
+        <a routerLink="/about3"
+          ><img src="/about3.webp" class="w-[720px] mid:w-auto" alt="about3"
+        /></a>
       </div>
     </div>
     <div class="flex flex-col items-end font-bold text-base text-[#666]">

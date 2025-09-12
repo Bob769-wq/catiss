@@ -13,7 +13,7 @@ interface FooterList {
     <div class="w-[87.5rem] max-w-full px-5 py-[.9375rem] mx-auto">
       <div class="border-t border-t-[#F7F7F7]">
         <div class="px-12">
-          <div class="grid grid-cols-3 justify-center gap-8 py-8">
+          <div class="grid mid:grid-cols-3  gap-8 py-8">
             @for (item of footerPart; track item.id) {
               <div class="w-full">
                 <div
@@ -37,8 +37,8 @@ interface FooterList {
     </div>
 
     <div class="w-[87.5rem] max-w-full px-5 py-[.9375rem] mx-auto">
-      <div class="mt-12 px-12 py-8 flex justify-between">
-        <div class="flex flex-1 gap-6">
+      <div class="mt-12 px-12 py-8 flex flex-col big:flex-row justify-between gap-5">
+        <div class="flex flex-wrap justify-center gap-6">
           <img class="h-10" src="/711.png" alt="711" />
           <img class="h-10" src="/line.png" alt="line" />
           <img class="h-10" src="/visa.png" alt="visa" />

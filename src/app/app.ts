@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { Crumb } from './crumb/crumb';
 import { HeroSection } from './hero-section/hero-section';
@@ -13,13 +12,17 @@ import { Footer } from './footer/footer';
   imports: [Header, Crumb, HeroSection, Product, MiddleBanner, AboutUs, Footer],
   template: `
     <app-header />
-    <div class="big:max-w-[var(--container)] mx-auto">
+    <div
+      class="px-[.9375rem] md:px-0 big:max-w-[var(--container)] mid:max-w-[970px] md:max-w-[750px] mx-auto"
+    >
       <app-crumb />
       <app-hero-section />
       <app-product />
     </div>
     <app-middle-banner />
-    <div class="big:max-w-[var(--container)] px-[.9375rem] mx-auto">
+    <div
+      class="big:max-w-[var(--container)] mid:max-w-[970px] md:max-w-[750px] md:px-0 px-[.9375rem] mx-auto"
+    >
       <app-about />
     </div>
     <app-footer />

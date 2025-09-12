@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Dumb } from './dumb';
 
 interface ProductItem {
   id: number;
@@ -13,31 +14,17 @@ interface ProductItem {
 
 @Component({
   selector: 'app-product',
-  imports: [RouterLink],
+  imports: [Dumb],
   template: `
     <div class="mb-5">
       <div class="flex flex-col items-center mb-7">
         <h2 class="text-[1.375rem] tracking-widest pt-[.625rem] pb-[1.5625rem]">精選商品</h2>
         <div class="w-6 bg-[#c74060] h-[.1875rem]"></div>
       </div>
-      <div class="grid grid-cols-4">
+
+      <div class="grid grid-cols-2 gap-2  mid:grid-cols-4">
         @for (item of productCard; track item.id) {
-          <div class="mb-[.9375rem] px-[.9375rem]">
-            <a [routerLink]="item.link">
-              <div class="">
-                <img [src]="item.img1" [alt]="item.title" />
-              </div>
-              <div class="pb-6 pt-[.625rem]">
-                <div class="line-clamp-2 text-sm text-center mb-1">
-                  {{ item.title }}
-                </div>
-                <div>
-                  <div class="text-base font-bold text-center text-[#C74060]">{{ item.price }}</div>
-                  <div class="text-center line-through">{{ item.oldPrice }}</div>
-                </div>
-              </div>
-            </a>
-          </div>
+          <app-dumb [product]="item" ] />
         }
       </div>
     </div>
