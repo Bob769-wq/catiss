@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, HostListener, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -108,13 +108,31 @@ interface NavList {
       </div>
 
       <div
-        class="big:block w-[87.5rem] max-w-full min-h-20 px-5 py-[.9375rem] mx-auto bg-white hidden"
+        [class]="
+          isScrolled()
+            ? 'big:block w-[87.5rem] max-w-full min-h-20 px-5 pt-[.9375rem] mx-auto bg-white hidden'
+            : 'big:block w-[87.5rem] max-w-full min-h-20 px-5 pt-[.9375rem]  mx-auto bg-white hidden'
+        "
       >
-        <div class="flex flex-col items-center relative">
-          <a class="max-h-[6.25rem] cursor-pointer"
-            ><img src="/logo.webp" class="max-h-[6.25rem]" alt="logo"
+        <div
+          [class]="
+            isScrolled()
+              ? 'flex items-center flex-row relative'
+              : 'flex flex-col items-center relative'
+          "
+        >
+          <a
+            [class]="
+              isScrolled() ? 'max-h-[3.75rem] cursor-pointer' : 'max-h-[6.25rem] cursor-pointer'
+            "
+            ><img
+              src="/logo.webp"
+              [class]="isScrolled() ? 'max-h-[3.75rem]' : 'max-h-[6.25rem]'"
+              alt="logo"
           /></a>
-          <div class="mx-auto mt-[.625rem] ">
+          <div
+            [class]="isScrolled() ? 'max-w-[62.5rem] ml-10 mt-[2.625rem]' : 'mx-auto mt-[.625rem]'"
+          >
             <ul class="flex gap-5 p-[.625rem]">
               @for (item of navItems; track item.id) {
                 @if (item.children && item.children.length > 0) {
@@ -416,6 +434,13 @@ interface NavList {
   styles: ``,
 })
 export class Header {
+  isScrolled = signal(false);
+
+  @HostListener('window:scroll')
+  onScroll() {
+    this.isScrolled.set(window.scrollY > 50);
+  }
+
   openDropDownById = signal<number | null>(null);
   showDropdown(id: number) {
     this.openDropDownById.set(id);
